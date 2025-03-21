@@ -245,7 +245,7 @@ class Client:
             Manga: the anime object with all the details
         """
         parameters = self._build_parameters(
-            Endpoint.ANIME, fields=fields)
+            Endpoint.MANGA, fields=fields)
         url: str = Endpoint.MANGA.url + '/' + self._get_as_id(id)
         data = self._api_call_manager.api_call(url, params=parameters)
         return Manga(data)
