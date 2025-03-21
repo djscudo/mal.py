@@ -36,6 +36,8 @@ class Endpoint(Enum):
 
     @property
     def is_anime(self) -> bool:
+        if 'manga' in self.url:
+            return False
         if 'anime' in self.url:
             return True
         return False
