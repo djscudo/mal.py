@@ -250,6 +250,7 @@ class Field(BaseEnum):
     ending_themes = 'ending_themes'
     # Manga only fields
     authors = 'authors'
+    authorsWithNames = 'authors{id,first_name,last_name}'
     num_chapters = 'num_chapters'           # 0 if not completed
     num_volumes = 'num_volumes'             # 0 if not completed
     serialization = 'serialization'
@@ -259,6 +260,7 @@ class Field(BaseEnum):
         """Returns all the fields that can be requested for an anime."""
         forbidden = [
             self.authors,
+            self.authorsWithNames,
             self.num_chapters,
             self.num_volumes,
             self.serialization,
@@ -339,7 +341,7 @@ class Field(BaseEnum):
         """Default fields that are requested for a manga."""
         fields = cls.base() + [
             Field.num_chapters,
-            Field.authors,
+            Field.authorsWithNames,
             Field.serialization
         ]
         return fields
